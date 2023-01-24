@@ -20,12 +20,13 @@
         <activity
             android:name="com.wzc.chapter_2.bundle.MainActivity"
             android:label="MainActivity"
+            android:exported="true"
             android:configChanges="orientation|screenSize">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN"/>-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
 
-<!--                <category android:name="android.intent.category.LAUNCHER"/>-->
-<!--            </intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
 
         <activity
@@ -37,6 +38,7 @@
         <activity
             android:name="com.wzc.chapter_2.bundle.ThirdActivity"
             android:configChanges="screenLayout"
+            android:exported="true"
             android:label="ThirdActivity"
             android:process="com.wzc.chapter_2.remote">
             <intent-filter>
@@ -109,12 +111,13 @@
 
         <activity
             android:name=".contentprovider.ProviderActivity"
+            android:exported="true"
             android:label="ProviderActivity">
-            <intent-filter>
-            <action android:name="android.intent.action.MAIN"/>
+<!--            <intent-filter>-->
+<!--            <action android:name="android.intent.action.MAIN"/>-->
 
-            <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+<!--            <category android:name="android.intent.category.LAUNCHER"/>-->
+<!--            </intent-filter>-->
         </activity>
 
         <activity
