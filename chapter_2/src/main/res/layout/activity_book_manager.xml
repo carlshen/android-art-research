@@ -4,33 +4,64 @@
               android:layout_height="match_parent"
               android:orientation="vertical">
 
-    <Button
-        android:id="@+id/bind"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bind"
-        android:textAllCaps="false"/>
+        android:layout_margin="6dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/binder_pool"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Start binder pool"
+            android:textAllCaps="false"/>
 
-    <Button
-        android:id="@+id/unbind"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/tcp_client"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Start tcp client"
+            android:textAllCaps="false"/>
+        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Unbind"
-        android:textAllCaps="false"/>
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/add_book"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add a book"
-        android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/bind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Bind"
+            android:textAllCaps="false"/>
 
-    <Button
-        android:id="@+id/get_booklist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get bookList"
-        android:textAllCaps="false"/>
+        <Button
+            android:id="@+id/unbind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Unbind"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/add_book"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Add a book"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/get_booklist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Get bookList"
+            android:textAllCaps="false"/>
+    </LinearLayout>
 
     <Button
         android:id="@+id/register"

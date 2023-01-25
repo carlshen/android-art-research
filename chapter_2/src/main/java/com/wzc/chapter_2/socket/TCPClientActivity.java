@@ -39,6 +39,7 @@ public class TCPClientActivity extends Activity implements View.OnClickListener 
     private static final int MSG_SOCKET_CONNECTED = 2;
     private TextView mTvMsgContainer;
     private EditText mEtMsg;
+    private Button mBtnConnect;
     private Button mBtnSend;
     private Socket mClientSocket;
     private PrintWriter mPrintWriter;
@@ -82,19 +83,21 @@ public class TCPClientActivity extends Activity implements View.OnClickListener 
         // 发送按钮
         mBtnSend = (Button) findViewById(R.id.send);
         mBtnSend.setOnClickListener(this);
+        mBtnConnect = (Button) findViewById(R.id.connect);
+        mBtnConnect.setOnClickListener(this);
 
-        Intent intent = new Intent();
-        intent.setComponent(new ComponentName("com.wzc.chapter_2_socket_server", "com.wzc.chapter_2_socket_server.TCPServerService"));
-//        startService(intent);
-        // 这里改为 bindService，修复在 Android 8.0 启动后台service 出错 IllegalStateException: Not allowed to start service Intent
-        bindService(intent, serviceConnection, BIND_AUTO_CREATE);
+//        Intent intent = new Intent();
+//        intent.setComponent(new ComponentName("com.wzc.chapter_2_socket_server", "com.wzc.chapter_2_socket_server.TCPServerService"));
+////        startService(intent);
+//        // 这里改为 bindService，修复在 Android 8.0 启动后台service 出错 IllegalStateException: Not allowed to start service Intent
+//        bindService(intent, serviceConnection, BIND_AUTO_CREATE);
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                connectTCPServer();
-            }
-        }).start();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                connectTCPServer();
+//            }
+//        }).start();
     }
 
     @Override
@@ -169,6 +172,17 @@ public class TCPClientActivity extends Activity implements View.OnClickListener 
                 final String showMsg = "self " + time + ": " + msg + "\n";
                 mTvMsgContainer.setText(mTvMsgContainer.getText() + showMsg);
             }
+        } else if (v == mBtnConnect) {
+            Log.d(TAG, "connectTCPServer: bindService ...");
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName("com.wzc.chapter_2_socket_server", "com.wzc.chapter_2_socket_server.TCPServerService"));
+            bindService(intent, serviceConnection, BIND_AUTO_CREATE);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    connectTCPServer();
+                }
+            }).start();
         }
     }
 }

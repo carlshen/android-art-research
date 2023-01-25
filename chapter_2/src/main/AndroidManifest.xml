@@ -68,6 +68,7 @@
         <activity
             android:name=".aidl.BookManagerActivity"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:label="BookManagerActivity">
             <intent-filter>
             <action android:name="android.intent.action.MAIN"/>
@@ -123,6 +124,8 @@
 
         <activity
             android:name=".socket.TCPClientActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
             android:label="TCPClientActivity">
 <!--            <intent-filter>-->
 <!--            <action android:name="android.intent.action.MAIN"/>-->
@@ -132,6 +135,8 @@
         </activity>
         <activity
             android:name=".binderpool.BinderPoolActivity"
+            android:screenOrientation="portrait"
+            android:exported="true"
             android:label="BinderPoolActivity">
 <!--            <intent-filter>-->
 <!--            <action android:name="android.intent.action.MAIN"/>-->

@@ -18,6 +18,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.wzc.chapter_2.R;
+import com.wzc.chapter_2.binderpool.BinderPoolActivity;
+import com.wzc.chapter_2.socket.TCPClientActivity;
 import com.wzc.chapter_2.util.ToastUtils;
 import com.wzc.chapter_2_common_lib.Book;
 import com.wzc.chapter_2_common_lib.IBookManager;
@@ -139,6 +141,8 @@ public class BookManagerActivity extends Activity implements View.OnClickListene
         findViewById(R.id.register).setOnClickListener(this);
 
         findViewById(R.id.unregister).setOnClickListener(this);
+        findViewById(R.id.binder_pool).setOnClickListener(this);
+        findViewById(R.id.tcp_client).setOnClickListener(this);
 
         mListview = (ListView) findViewById(R.id.listview);
 
@@ -227,7 +231,13 @@ public class BookManagerActivity extends Activity implements View.OnClickListene
                     }
                 }
                 break;
+            case R.id.tcp_client:
+                startActivity(new Intent(BookManagerActivity.this, TCPClientActivity.class));
+                break;
+            case R.id.binder_pool:
             default:
+                startActivity(new Intent(BookManagerActivity.this, BinderPoolActivity.class));
+                break;
 
         }
     }
