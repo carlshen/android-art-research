@@ -194,22 +194,17 @@ public class BookManagerActivity extends Activity implements View.OnClickListene
                 break;
 
             case R.id.get_booklist:
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        if (isBookManagerReady()) {
-                            try {
-                                List<Book> bookList = mBookManager.getBookList();
-                                // 这里打印的是 ArrayList，虽然在服务端用的是 CopyOnWriteArrayList
-                                Log.d(TAG, "getBookList bookList ListType = " + bookList.getClass().getCanonicalName());
-                                ArrayAdapter<Book> bookArrayAdapter = new ArrayAdapter<>(BookManagerActivity.this, android.R.layout.simple_list_item_1, bookList);
-                                mListview.setAdapter(bookArrayAdapter);
-                            } catch (RemoteException e) {
-                                e.printStackTrace();
-                            }
-                        }
+                if (isBookManagerReady()) {
+                    try {
+                        List<Book> bookList = mBookManager.getBookList();
+                        // 这里打印的是 ArrayList，虽然在服务端用的是 CopyOnWriteArrayList
+                        Log.d(TAG, "getBookList bookList ListType = " + bookList.getClass().getCanonicalName());
+                        ArrayAdapter<Book> bookArrayAdapter = new ArrayAdapter<>(BookManagerActivity.this, android.R.layout.simple_list_item_1, bookList);
+                        mListview.setAdapter(bookArrayAdapter);
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
                     }
-                }).start();
+                }
                 break;
 
             case R.id.register:

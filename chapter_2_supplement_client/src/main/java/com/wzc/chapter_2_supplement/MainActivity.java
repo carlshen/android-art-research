@@ -100,7 +100,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 mIsBound = true;
                 break;
             case R.id.unbind:
-                if (mIsBound) {
+                if (isServiceReady()) {
                     unbindService(mServiceConnection);
                     mService = null;
                     mIsBound = false;
